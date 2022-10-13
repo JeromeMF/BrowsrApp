@@ -11,6 +11,11 @@
 		021010F928F8570700AA106D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021010F828F8570700AA106D /* ContentView.swift */; };
 		021010FB28F8570800AA106D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021010FA28F8570800AA106D /* Assets.xcassets */; };
 		021010FE28F8570800AA106D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021010FD28F8570800AA106D /* Preview Assets.xcassets */; };
+		0210110D28F85DBF00AA106D /* BrowsrLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210110C28F85DBF00AA106D /* BrowsrLib.swift */; };
+		0210110F28F8629400AA106D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210110E28F8629400AA106D /* UserModel.swift */; };
+		0210111128F869E100AA106D /* BrowsrLibError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111028F869E100AA106D /* BrowsrLibError.swift */; };
+		0210111328F896A000AA106D /* OrganizationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111228F896A000AA106D /* OrganizationsListView.swift */; };
+		0210111528F896E500AA106D /* OrganizationsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111428F896E500AA106D /* OrganizationsListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		021010F828F8570700AA106D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		021010FA28F8570800AA106D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		021010FD28F8570800AA106D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0210110C28F85DBF00AA106D /* BrowsrLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsrLib.swift; sourceTree = "<group>"; };
+		0210110E28F8629400AA106D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		0210111028F869E100AA106D /* BrowsrLibError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsrLibError.swift; sourceTree = "<group>"; };
+		0210111228F896A000AA106D /* OrganizationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListView.swift; sourceTree = "<group>"; };
+		0210111428F896E500AA106D /* OrganizationsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 				0210110A28F8584C00AA106D /* Extensions */,
 				0210110928F8584000AA106D /* Models */,
 				0210110828F8583500AA106D /* Resources */,
+				0210110B28F85DA100AA106D /* Services */,
 				0210110728F8582700AA106D /* SupportingFiles */,
 				0210110628F8582200AA106D /* Utils */,
 				0210110528F8581D00AA106D /* Views */,
@@ -75,6 +86,7 @@
 		0210110428F8580F00AA106D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0210111428F896E500AA106D /* OrganizationsListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -82,6 +94,7 @@
 		0210110528F8581D00AA106D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0210111228F896A000AA106D /* OrganizationsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -89,6 +102,7 @@
 		0210110628F8582200AA106D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0210111028F869E100AA106D /* BrowsrLibError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -112,6 +126,7 @@
 		0210110928F8584000AA106D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0210110E28F8629400AA106D /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +136,14 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0210110B28F85DA100AA106D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0210110C28F85DBF00AA106D /* BrowsrLib.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +216,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0210110F28F8629400AA106D /* UserModel.swift in Sources */,
+				0210111328F896A000AA106D /* OrganizationsListView.swift in Sources */,
+				0210111528F896E500AA106D /* OrganizationsListViewModel.swift in Sources */,
+				0210110D28F85DBF00AA106D /* BrowsrLib.swift in Sources */,
+				0210111128F869E100AA106D /* BrowsrLibError.swift in Sources */,
 				021010F928F8570700AA106D /* ContentView.swift in Sources */,
 				021010F728F8570700AA106D /* BrowsrAppApp.swift in Sources */,
 			);
