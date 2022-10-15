@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct OrganizationsListView: View {
+    // MARK: - Properties
+    @StateObject var viewModel = OrganizationsListViewModel()
+    
+    
+    // MARK: - Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+            ScrollView {
+                LazyVStack {
+                    //                List()
+                    ForEach(viewModel.organizations, id: \.self) { value in
+                        Text("\(value.login)")
+//                            .onAppear() {
+//                                viewModel.loadMoreOrganizations(currentItem: value)
+//                            }
+                        
+                        Button(action: {
+                            viewModel.loadMoreOrganizations(currentItem: value)
+                        }, label: { Text("YOOOOO!")})
+                    }
+                }
+            }
+        }
     }
 }
 
+// MARK: - Preview
 struct OrganizationsListView_Previews: PreviewProvider {
     static var previews: some View {
         OrganizationsListView()

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		021010F728F8570700AA106D /* BrowsrAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021010F628F8570700AA106D /* BrowsrAppApp.swift */; };
-		021010F928F8570700AA106D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021010F828F8570700AA106D /* ContentView.swift */; };
 		021010FB28F8570800AA106D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021010FA28F8570800AA106D /* Assets.xcassets */; };
 		021010FE28F8570800AA106D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021010FD28F8570800AA106D /* Preview Assets.xcassets */; };
 		0210110D28F85DBF00AA106D /* BrowsrLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210110C28F85DBF00AA106D /* BrowsrLib.swift */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		021010F328F8570700AA106D /* BrowsrApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrowsrApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		021010F628F8570700AA106D /* BrowsrAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsrAppApp.swift; sourceTree = "<group>"; };
-		021010F828F8570700AA106D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		021010FA28F8570800AA106D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		021010FD28F8570800AA106D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0210110C28F85DBF00AA106D /* BrowsrLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsrLib.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				021010F628F8570700AA106D /* BrowsrAppApp.swift */,
-				021010F828F8570700AA106D /* ContentView.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -221,7 +218,6 @@
 				0210111528F896E500AA106D /* OrganizationsListViewModel.swift in Sources */,
 				0210110D28F85DBF00AA106D /* BrowsrLib.swift in Sources */,
 				0210111128F869E100AA106D /* BrowsrLibError.swift in Sources */,
-				021010F928F8570700AA106D /* ContentView.swift in Sources */,
 				021010F728F8570700AA106D /* BrowsrAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

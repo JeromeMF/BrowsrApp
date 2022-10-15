@@ -8,26 +8,29 @@
 import Foundation
 import Combine
 
-// MARK: - Properties
-let BASE_URL = "https://api.github.com/search/users?q=type:org"
-
-private var cancellable: AnyCancellable?
-
-// MARK: - Get organizations method
-func getOrganizations() -> AnyPublisher<UserModel, Error> {
+class BrowsrLib {
+        
+    // MARK: - Properties
+    let BASE_URL = "https://api.github.com/search/users?q=type:org?page="
     
-    guard let url = URL(string: BASE_URL) else {
-        //        return Fail(error: NSError(domain: "Missing Feed URL", code: -10001, userInfo: nil)).eraseToAnyPublisher()
-        return Fail(error: BrowsrLibError.invalidUrl).eraseToAnyPublisher()
+    private var cancellable: AnyCancellable?
+    
+    // MARK: - Get organizations method
+    func getOrganizations(page: Int) -> AnyPublisher<UserModel, Error> {
+        
+        guard let url = URL(string: BASE_URL + "\(page)") else {
+            //        return Fail(error: NSError(domain: "Missing Feed URL", code: -10001, userInfo: nil)).eraseToAnyPublisher()
+            return Fail(error: BrowsrLibError.invalidUrl).eraseToAnyPublisher()
+        }
+        
+        let publisher = URLSession.shared.dataTaskPublisher(for: url)
+                .receive(on: DispatchQueue.main)
+            .map(\.data)
+            .decode(type: UserModel.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+        
+        return publisher
     }
-    
-    let publisher = URLSession.shared.dataTaskPublisher(for: url)
-//        .receive(on: DispatchQueue.main)
-        .map(\.data)
-        .decode(type: UserModel.self, decoder: JSONDecoder())
-        .eraseToAnyPublisher()
-    
-    return publisher
 }
 
 //enum FailureReason : Error {

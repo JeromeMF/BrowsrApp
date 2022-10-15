@@ -21,7 +21,7 @@ struct UserModel: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Item: Codable, Hashable {
     let login: String
     let id: Int
     let nodeID: String
