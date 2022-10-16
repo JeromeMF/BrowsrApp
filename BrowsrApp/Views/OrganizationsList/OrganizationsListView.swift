@@ -58,8 +58,13 @@ struct OrganizationsListView: View {
                     }
                     .onChange(of: sortSelection) { sort in
                         searchString = ""
-                        viewModel.clearOrganizations()
-                        viewModel.sortOrganization(sort)
+                        if sort == "favourites" {
+                            viewModel.clearOrganizations()
+                            viewModel.getFavourites()
+                        } else {
+                            viewModel.clearOrganizations()
+                            viewModel.sortOrganization(sort)
+                        }
                     }
                     .onSubmit(of: .search) {
                         Task {

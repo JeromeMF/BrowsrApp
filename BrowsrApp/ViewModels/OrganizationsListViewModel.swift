@@ -16,9 +16,10 @@ class OrganizationsListViewModel: ObservableObject {
     private var totalPages = 0
     
     var favourites: [Item] = []
+    let defaults = UserDefaults.standard
     
     @Published var organizations: [Item] = []
-
+    
     init() {
         sortOrganization("followers")
     }
@@ -71,7 +72,26 @@ class OrganizationsListViewModel: ObservableObject {
     }
     
     func getFavourites() {
-        clearOrganizations()
+        let decoder = JSONDecoder()
+        if let data = defaults.value(forKey: "Favourites") as? Data {
+            let taskData = try? decoder.decode([Item].self, from: data)
+            self.organizations = taskData ?? []
+        } else {
+            self.organizations = []
+        }
+        
+//        cancellable = BrowsrLib().sortOrganizations(page: 1, sortType: "followers")
+//            .sink(receiveCompletion: { _ in
+//
+//            }, receiveValue: { data in
+//                for fid in self.favourites {
+////                    if data.items.contains(where: { $0.id == fid }) {
+//                        self.organizations.append(contentsOf: data.items.filter{ $0 == fid })
+////                    }
+//                }
+//
+//                self.totalPages = data.totalCount / 50
+//            })
     }
     
     // MARK: - Clear organizations
