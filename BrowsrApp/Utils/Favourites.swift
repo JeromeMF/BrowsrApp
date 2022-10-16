@@ -17,6 +17,8 @@ class Favourites: ObservableObject {
     
     let defaults = UserDefaults.standard
     
+    var emptyString: String = ""
+    
     // MARK: - Init()
     init() {
         let decoder = JSONDecoder()
@@ -25,6 +27,7 @@ class Favourites: ObservableObject {
             self.organizations = taskData ?? []
         } else {
             self.organizations = []
+            self.emptyString = "No favourites."
         }
     }
     

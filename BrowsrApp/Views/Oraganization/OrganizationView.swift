@@ -54,19 +54,19 @@ struct OrganizationView: View {
             .foregroundColor(.white)
             
             Spacer()
-                if favourites.contains(organization) {
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .foregroundColor(.pink)
-                        .frame(width: 20, height: 20)
-                        .padding(.trailing)
-                } else {
-                    Image(systemName: "heart")
-                        .resizable()
-                        .foregroundColor(.pink)
-                        .frame(width: 20, height: 20)
-                        .padding(.trailing)
-                }
+            if favourites.contains(organization) {
+                Image(systemName: "heart.fill")
+                    .resizable()
+                    .foregroundColor(.pink)
+                    .frame(width: 20, height: 20)
+                    .padding(.trailing)
+            } else {
+                Image(systemName: "heart")
+                    .resizable()
+                    .foregroundColor(.pink)
+                    .frame(width: 20, height: 20)
+                    .padding(.trailing)
+            }
         }
         .environmentObject(favourites)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 150, alignment: .leading)

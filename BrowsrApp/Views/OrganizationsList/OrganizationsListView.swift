@@ -34,20 +34,24 @@ struct OrganizationsListView: View {
                     .pickerStyle(.menu)
                     ScrollView {
                         LazyVStack {
-                            ForEach(viewModel.organizations.indices, id: \.self) { index in
-                                OrganizationView(organization: viewModel.organizations[index])
-                                    .onAppear() {
-                                        if !isSearching && searchString.isEmpty && sortSelection != "favourites" {
-                                            viewModel.loadMoreOrganizations(index: index, sortType: sortSelection)
+                            if viewModel.organizations.isEmpty {
+                                Text("Nothing to show yet.")
+                            } else {
+                                ForEach(viewModel.organizations.indices, id: \.self) { index in
+                                    OrganizationView(organization: viewModel.organizations[index])
+                                        .onAppear() {
+                                            if !isSearching && searchString.isEmpty && sortSelection != "favourites" {
+                                                viewModel.loadMoreOrganizations(index: index, sortType: sortSelection)
+                                            }
                                         }
-                                    }
-                                    .onTapGesture {
-                                        if favourites.contains(viewModel.organizations[index]) {
-                                            favourites.remove(viewModel.organizations[index])
-                                        } else {
-                                            favourites.add(viewModel.organizations[index])
+                                        .onTapGesture {
+                                            if favourites.contains(viewModel.organizations[index]) {
+                                                favourites.remove(viewModel.organizations[index])
+                                            } else {
+                                                favourites.add(viewModel.organizations[index])
+                                            }
                                         }
-                                    }
+                                }
                             }
                         }
                     }
@@ -78,6 +82,10 @@ struct OrganizationsListView: View {
                             viewModel.searchOrganization(_: searchString)
                         }
                     }
+                }
+                if viewModel.isLoading {
+                    ProgressView()
+                        .scaleEffect(x: 2, y: 2, anchor: .center)
                 }
             }
         }

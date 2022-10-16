@@ -25,6 +25,7 @@ class ApiServiceTest: XCTestCase {
         var error: Error?
 //        var id: Int = 0
         var name: String = ""
+        var array: UserModel?
         
         BrowsrLib().getOrganizations(page: 1)
             .sink(receiveCompletion: { completion in
@@ -39,6 +40,7 @@ class ApiServiceTest: XCTestCase {
             }, receiveValue: { value in
                 print(value)
                 name = value.items.first?.login ?? ""
+                array = value
             })
             .store(in: &cancellables)
         
@@ -47,6 +49,7 @@ class ApiServiceTest: XCTestCase {
         XCTAssertNil(error)
         XCTAssertEqual(name, "microsoft") // For followers microsoft comes first
         XCTAssertFalse(name == "google") // Check is organization is something else other than microsoft
+        XCTAssertNotNil(array)
     }
     
     // MARK: - Test Search Organizations

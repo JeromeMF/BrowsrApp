@@ -7,6 +7,8 @@ BrowsrApp demo app challenge
       - Shows organizations within github https://docs.github.com/en/free-pro-team@latest/rest/reference/orgs
       - Organizations can be sorted by: followers (default), repositories, joined or favourites (if any favourite is saved)
       - Supports search by organization name
+      - Organizations avatars displayed
+      - Simple unit tests to verify search and get functions
 
 # Built in
 SwiftUI + Combine - No 3rd party libs added. 

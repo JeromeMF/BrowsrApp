@@ -19,6 +19,7 @@ class OrganizationsListViewModel: ObservableObject {
     let defaults = UserDefaults.standard
     
     @Published var organizations: [Item] = []
+    @Published var isLoading: Bool = false
     
     init() {
         sortOrganization("followers")
@@ -26,9 +27,10 @@ class OrganizationsListViewModel: ObservableObject {
     
     // MARK: - Methods
     func getOrganizations() {
-        print(page)
+        isLoading = true
         cancellable = BrowsrLib().getOrganizations(page: page)
             .sink(receiveCompletion: { _ in
+                self.isLoading = false
                 
             }, receiveValue: { data in
                 self.organizations.append(contentsOf: data.items)
@@ -50,10 +52,10 @@ class OrganizationsListViewModel: ObservableObject {
     func searchOrganization(_ name: String) {
         
         self.organizations.removeAll()
-        print(name)
+        isLoading = true
         cancellable = BrowsrLib().searchOrganization(orgName: name.lowercased())
             .sink(receiveCompletion: { _ in
-                
+                self.isLoading = false
             }, receiveValue: { data in
                 self.organizations.append(contentsOf: data.items)
                 print(data)
@@ -62,9 +64,10 @@ class OrganizationsListViewModel: ObservableObject {
     
     // MARK: - Sort organizations
     func sortOrganization(_ sortType: String) {
+        isLoading = true
         cancellable = BrowsrLib().sortOrganizations(page: page, sortType: sortType)
             .sink(receiveCompletion: { _ in
-                
+                self.isLoading = false
             }, receiveValue: { data in
                 self.organizations.append(contentsOf: data.items)
                 self.totalPages = data.totalCount / 50
@@ -72,6 +75,7 @@ class OrganizationsListViewModel: ObservableObject {
     }
     
     func getFavourites() {
+        isLoading = true
         let decoder = JSONDecoder()
         if let data = defaults.value(forKey: "Favourites") as? Data {
             let taskData = try? decoder.decode([Item].self, from: data)
@@ -80,18 +84,7 @@ class OrganizationsListViewModel: ObservableObject {
             self.organizations = []
         }
         
-//        cancellable = BrowsrLib().sortOrganizations(page: 1, sortType: "followers")
-//            .sink(receiveCompletion: { _ in
-//
-//            }, receiveValue: { data in
-//                for fid in self.favourites {
-////                    if data.items.contains(where: { $0.id == fid }) {
-//                        self.organizations.append(contentsOf: data.items.filter{ $0 == fid })
-////                    }
-//                }
-//
-//                self.totalPages = data.totalCount / 50
-//            })
+        isLoading = false
     }
     
     // MARK: - Clear organizations
