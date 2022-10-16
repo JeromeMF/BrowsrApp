@@ -15,6 +15,8 @@
 		0210111128F869E100AA106D /* BrowsrLibError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111028F869E100AA106D /* BrowsrLibError.swift */; };
 		0210111328F896A000AA106D /* OrganizationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111228F896A000AA106D /* OrganizationsListView.swift */; };
 		0210111528F896E500AA106D /* OrganizationsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111428F896E500AA106D /* OrganizationsListViewModel.swift */; };
+		0210111B28FB7A4400AA106D /* OrganizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111A28FB7A4400AA106D /* OrganizationView.swift */; };
+		02AABF9C28FC201F00C22F20 /* SortFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AABF9B28FC201F00C22F20 /* SortFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		0210111028F869E100AA106D /* BrowsrLibError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsrLibError.swift; sourceTree = "<group>"; };
 		0210111228F896A000AA106D /* OrganizationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListView.swift; sourceTree = "<group>"; };
 		0210111428F896E500AA106D /* OrganizationsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListViewModel.swift; sourceTree = "<group>"; };
+		0210111A28FB7A4400AA106D /* OrganizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationView.swift; sourceTree = "<group>"; };
+		02AABF9B28FC201F00C22F20 /* SortFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +96,8 @@
 		0210110528F8581D00AA106D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0210111228F896A000AA106D /* OrganizationsListView.swift */,
+				0210111728FB793600AA106D /* Oraganization */,
+				0210111628FB792800AA106D /* OrganizationsList */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0210111028F869E100AA106D /* BrowsrLibError.swift */,
+				02AABF9B28FC201F00C22F20 /* SortFilter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -141,6 +147,22 @@
 				0210110C28F85DBF00AA106D /* BrowsrLib.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0210111628FB792800AA106D /* OrganizationsList */ = {
+			isa = PBXGroup;
+			children = (
+				0210111228F896A000AA106D /* OrganizationsListView.swift */,
+			);
+			path = OrganizationsList;
+			sourceTree = "<group>";
+		};
+		0210111728FB793600AA106D /* Oraganization */ = {
+			isa = PBXGroup;
+			children = (
+				0210111A28FB7A4400AA106D /* OrganizationView.swift */,
+			);
+			path = Oraganization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +236,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0210110F28F8629400AA106D /* UserModel.swift in Sources */,
+				02AABF9C28FC201F00C22F20 /* SortFilter.swift in Sources */,
 				0210111328F896A000AA106D /* OrganizationsListView.swift in Sources */,
+				0210111B28FB7A4400AA106D /* OrganizationView.swift in Sources */,
 				0210111528F896E500AA106D /* OrganizationsListViewModel.swift in Sources */,
 				0210110D28F85DBF00AA106D /* BrowsrLib.swift in Sources */,
 				0210111128F869E100AA106D /* BrowsrLibError.swift in Sources */,
@@ -347,7 +371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BrowsrApp/Preview Content\"";
-				DEVELOPMENT_TEAM = D27UPS2X83;
+				DEVELOPMENT_TEAM = J79W5LYB5S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -360,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lss.BrowsrApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lss.BrowsrDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -376,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BrowsrApp/Preview Content\"";
-				DEVELOPMENT_TEAM = D27UPS2X83;
+				DEVELOPMENT_TEAM = J79W5LYB5S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -389,7 +413,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lss.BrowsrApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lss.BrowsrDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

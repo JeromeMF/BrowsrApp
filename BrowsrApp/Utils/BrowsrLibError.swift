@@ -7,16 +7,14 @@
 
 import Foundation
 
+// MARK: - Browsr Lib Error
 enum BrowsrLibError: Error {
-    // Throw when an invalid url is passed
-    case invalidUrl
-    // Throw when an expected resource is not found
-    case notFound
-    // Throw in all other cases
-    case unexpected(code: Int)
+    case invalidUrl // Throw when an invalid url is passed
+    case notFound // Throw when an expected resource is not found
+    case unexpected(code: Int) // Throw in all other cases
 }
 
-// For each error type return the appropriate description
+// MARK: - Error types description
 extension BrowsrLibError: CustomStringConvertible {
     public var description: String {
         switch self {
