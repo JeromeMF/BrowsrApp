@@ -13,7 +13,6 @@ class BrowsrLib {
     // MARK: - Properties
     let BASE_URL_PAGES = "https://api.github.com/search/users?q=type:org&per_page=50&page="
     let BASE_URL_SEARCH = "https://api.github.com/search/users?q=org:"
-//    let BASE_URL_SORT = "https://api.github.com/search/users?q=type:org&per_page=50&page="
     
     private var cancellable: AnyCancellable?
     
@@ -21,7 +20,6 @@ class BrowsrLib {
     func getOrganizations(page: Int) -> AnyPublisher<UserModel, Error> {
         
         guard let url = URL(string: BASE_URL_PAGES + "\(page)") else {
-            //        return Fail(error: NSError(domain: "Missing Feed URL", code: -10001, userInfo: nil)).eraseToAnyPublisher()
             return Fail(error: BrowsrLibError.invalidUrl).eraseToAnyPublisher()
         }
         

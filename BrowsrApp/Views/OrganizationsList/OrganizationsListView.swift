@@ -11,12 +11,12 @@ struct OrganizationsListView: View {
     // MARK: - Properties
     @StateObject var viewModel = OrganizationsListViewModel()
     @StateObject var favourites = Favourites()
-        
+    
     @State var sortSelection: String = "followers"
     @State var searchString: String = ""
     
-//    @Environment(\.dismissSearch) var dismissSearch
     @Environment(\.isSearching) var isSearching
+    @EnvironmentObject var favouritesObj: Favourites
     
     let sorting = ["followers", "repositories", "joined", "favourites"]
     
@@ -37,8 +37,15 @@ struct OrganizationsListView: View {
                             ForEach(viewModel.organizations.indices, id: \.self) { index in
                                 OrganizationView(organization: viewModel.organizations[index])
                                     .onAppear() {
-                                        if !isSearching && searchString.isEmpty {
+                                        if !isSearching && searchString.isEmpty && sortSelection != "favourites" {
                                             viewModel.loadMoreOrganizations(index: index, sortType: sortSelection)
+                                        }
+                                    }
+                                    .onTapGesture {
+                                        if favourites.contains(viewModel.organizations[index]) {
+                                            favourites.remove(viewModel.organizations[index])
+                                        } else {
+                                            favourites.add(viewModel.organizations[index])
                                         }
                                     }
                             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OrganizationView: View {
     // MARK: - Properties
-    @StateObject var favourites = Favourites()
+    @ObservedObject var favourites = Favourites()
     
     @EnvironmentObject var favouritesObj: Favourites
     
@@ -54,15 +54,6 @@ struct OrganizationView: View {
             .foregroundColor(.white)
             
             Spacer()
-            
-            Button(action: {
-                if favourites.contains(organization) {
-                    favourites.remove(organization)
-                } else {
-                    favourites.add(organization)
-                }
-                
-            }, label: {
                 if favourites.contains(organization) {
                     Image(systemName: "heart.fill")
                         .resizable()
@@ -76,7 +67,6 @@ struct OrganizationView: View {
                         .frame(width: 20, height: 20)
                         .padding(.trailing)
                 }
-            })
         }
         .environmentObject(favourites)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 150, alignment: .leading)

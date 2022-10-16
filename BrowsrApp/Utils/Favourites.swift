@@ -11,8 +11,7 @@ import SwiftUI
 class Favourites: ObservableObject {
     
     // MARK: - Properties
-//    private var organizations: Set<Int>
-    private var orgs: [Item] = []
+    private var organizations: [Item] = []
     
     private let saveKey = "Favourites"
     
@@ -23,39 +22,32 @@ class Favourites: ObservableObject {
         let decoder = JSONDecoder()
         if let data = defaults.value(forKey:  saveKey) as? Data {
             let taskData = try? decoder.decode([Item].self, from: data)
-            self.orgs = taskData ?? []
+            self.organizations = taskData ?? []
         } else {
-            self.orgs = []
+            self.organizations = []
         }
     }
     
     // MARK: - Methods
     func contains(_ organization: Item) -> Bool {
-//        organizations.contains(organization.id)
-        return orgs.contains(organization)
+        return organizations.contains(organization)
     }
     
     func add(_ organization: Item) {
         objectWillChange.send()
-//        organizations.insert(organization.id)
-        orgs.append(organization)
+        organizations.append(organization)
         save()
     }
     
     func remove(_ organization: Item) {
         objectWillChange.send()
-//        organizations.remove(organization.id)
-        
-        if let index = orgs.firstIndex(of: organization) {
-            orgs.remove(at: index)
-        }
-//        _ = orgs.filter {$0 == organization}
+        organizations.removeAll{ $0 == organization}
         save()
     }
     
     func save() {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(orgs) {//organizations) {
+        if let encoded = try? encoder.encode(organizations) {
             defaults.set(encoded, forKey: saveKey)
         }
     }
