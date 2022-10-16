@@ -11,9 +11,8 @@ BrowsrApp demo app challenge
 # Built in
 SwiftUI + Combine - No 3rd party libs added. 
 
-# ARchitecture
+# Architecture
 MVVM
 
 ## Screens preview
-<img src="https://ibb.co/60W3xsg.png" width="200"> <img src="https://ibb.co/nPdGSsq" width="200"> <img src="https://ibb.co/F4rr3sk" width="200"> <img src="https://ibb.co/7ndKC30" width="200"> <img src="https://ibb.co/7ndKC30" width="200"> <img src="https://ibb.co/BPgT9rw" width="200">
-
+<img src="https://i.ibb.co/b5KSZdz/Simulator-Screen-Shot-i-Phone-14-2022-10-16-at-20-02-25.png" width="200"> <img src="https://i.ibb.co/y4v9Jnm/Simulator-Screen-Shot-i-Phone-14-2022-10-16-at-23-49-29.png" width="200"> <img src="https://i.ibb.co/4Rqqtsw/Simulator-Screen-Shot-i-Phone-14-2022-10-16-at-23-49-41.png" width="200"> <img src="https://i.ibb.co/VgcT9Fk/Simulator-Screen-Shot-i-Phone-14-2022-10-16-at-23-49-57.png" width="200"> <img src="https://i.ibb.co/H2rGjxX/Simulator-Screen-Shot-i-Phone-14-2022-10-16-at-23-50-08.png" width="200"> 
