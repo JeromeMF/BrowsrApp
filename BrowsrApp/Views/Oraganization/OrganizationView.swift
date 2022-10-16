@@ -9,7 +9,12 @@ import SwiftUI
 
 struct OrganizationView: View {
     // MARK: - Properties
+    @StateObject var favourites = Favourites()
+    
+    @EnvironmentObject var favouritesObj: Favourites
+    
     var organization: Item
+    
     
     // MARK: - Body
     var body: some View {
@@ -18,7 +23,6 @@ struct OrganizationView: View {
                        content: { image in
                 image.resizable()
                     .aspectRatio(contentMode: .fit)
-                //                                                .frame(maxWidth: 300, maxHeight: 100)
             },
                        placeholder: {
                 ProgressView()
@@ -52,19 +56,29 @@ struct OrganizationView: View {
             Spacer()
             
             Button(action: {
+                if favourites.contains(organization) {
+                    favourites.remove(organization)
+                } else {
+                    favourites.add(organization)
+                }
                 
             }, label: {
-            
-            Image(systemName: "heart")
-                .resizable()
-                .foregroundColor(.pink)
-                .frame(width: 20, height: 20)
-                .padding(.trailing)
-                    
+                if favourites.contains(organization) {
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .foregroundColor(.pink)
+                        .frame(width: 20, height: 20)
+                        .padding(.trailing)
+                } else {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .foregroundColor(.pink)
+                        .frame(width: 20, height: 20)
+                        .padding(.trailing)
+                }
             })
-            
-            
         }
+        .environmentObject(favourites)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 150, alignment: .leading)
         .background(Color.gray)
         .cornerRadius(10.0)

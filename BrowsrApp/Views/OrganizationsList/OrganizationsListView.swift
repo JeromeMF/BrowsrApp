@@ -10,13 +10,15 @@ import SwiftUI
 struct OrganizationsListView: View {
     // MARK: - Properties
     @StateObject var viewModel = OrganizationsListViewModel()
+    @StateObject var favourites = Favourites()
+        
     @State var sortSelection: String = "followers"
     @State var searchString: String = ""
     
-    @Environment(\.dismissSearch) var dismissSearch
+//    @Environment(\.dismissSearch) var dismissSearch
     @Environment(\.isSearching) var isSearching
     
-    let sorting = ["followers", "repositories", "joined"]
+    let sorting = ["followers", "repositories", "joined", "favourites"]
     
     // MARK: - Body
     var body: some View {
@@ -25,11 +27,11 @@ struct OrganizationsListView: View {
                 VStack(spacing: 0) {
                     
                     Picker("Sort", selection: $sortSelection) {
-                                    ForEach(sorting, id: \.self) { sort in
-                                        Text(sort)
-                                    }
-                                }
-                                .pickerStyle(.menu)
+                        ForEach(sorting, id: \.self) { sort in
+                            Text(sort)
+                        }
+                    }
+                    .pickerStyle(.menu)
                     ScrollView {
                         LazyVStack {
                             ForEach(viewModel.organizations.indices, id: \.self) { index in
@@ -59,15 +61,15 @@ struct OrganizationsListView: View {
                         viewModel.clearOrganizations()
                         viewModel.sortOrganization(sort)
                     }
-                    .onSubmit(of: .search) { // Su
+                    .onSubmit(of: .search) {
                         Task {
                             viewModel.searchOrganization(_: searchString)
                         }
                     }
                 }
-//                .padding(.top)
             }
         }
+        .environmentObject(favourites)
     }
 }
 

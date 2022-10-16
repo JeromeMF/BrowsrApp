@@ -16,7 +16,7 @@
 		0210111328F896A000AA106D /* OrganizationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111228F896A000AA106D /* OrganizationsListView.swift */; };
 		0210111528F896E500AA106D /* OrganizationsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111428F896E500AA106D /* OrganizationsListViewModel.swift */; };
 		0210111B28FB7A4400AA106D /* OrganizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0210111A28FB7A4400AA106D /* OrganizationView.swift */; };
-		02AABF9C28FC201F00C22F20 /* SortFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AABF9B28FC201F00C22F20 /* SortFilter.swift */; };
+		02AABF9E28FC4AA500C22F20 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AABF9D28FC4AA500C22F20 /* Favourites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 		0210111228F896A000AA106D /* OrganizationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListView.swift; sourceTree = "<group>"; };
 		0210111428F896E500AA106D /* OrganizationsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListViewModel.swift; sourceTree = "<group>"; };
 		0210111A28FB7A4400AA106D /* OrganizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationView.swift; sourceTree = "<group>"; };
-		02AABF9B28FC201F00C22F20 /* SortFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilter.swift; sourceTree = "<group>"; };
+		02AABF9D28FC4AA500C22F20 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0210111028F869E100AA106D /* BrowsrLibError.swift */,
-				02AABF9B28FC201F00C22F20 /* SortFilter.swift */,
+				02AABF9D28FC4AA500C22F20 /* Favourites.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,9 +236,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0210110F28F8629400AA106D /* UserModel.swift in Sources */,
-				02AABF9C28FC201F00C22F20 /* SortFilter.swift in Sources */,
 				0210111328F896A000AA106D /* OrganizationsListView.swift in Sources */,
 				0210111B28FB7A4400AA106D /* OrganizationView.swift in Sources */,
+				02AABF9E28FC4AA500C22F20 /* Favourites.swift in Sources */,
 				0210111528F896E500AA106D /* OrganizationsListViewModel.swift in Sources */,
 				0210110D28F85DBF00AA106D /* BrowsrLib.swift in Sources */,
 				0210111128F869E100AA106D /* BrowsrLibError.swift in Sources */,
