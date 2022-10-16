@@ -13,7 +13,7 @@ struct OrganizationView: View {
     
     // MARK: - Body
     var body: some View {
-        HStack(alignment: .center, spacing: nil, content: {
+        HStack(alignment: .center, spacing: 0) {
             AsyncImage(url: URL(string: organization.avatarURL),
                        content: { image in
                 image.resizable()
@@ -24,12 +24,12 @@ struct OrganizationView: View {
                 ProgressView()
             })
             
-            .frame(width: 80.0, height: 80.0, alignment: .center)
+            .frame(width: 70.0, height: 70.0, alignment: .center)
             .cornerRadius(20)
-            .padding([.vertical, .leading], 20)
+            .padding([.vertical, .leading], 10)
             .padding(.trailing, 10)
             
-            VStack(alignment: .leading, spacing: 5, content: {
+            VStack(alignment: .leading, spacing: 5) {
                 HStack (alignment: .top){
                     Text("Name:")
                         .fontWeight(.semibold)
@@ -42,14 +42,29 @@ struct OrganizationView: View {
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .bold()
-                    Text("\(organization.organizationsURL)")
-                        .font(.subheadline)
-                        .padding(.trailing)
+                    Text("\(organization.url)")
+                        .font(.callout)
                 }
                 
-            })
+            }
             .foregroundColor(.white)
-        })
+            
+            Spacer()
+            
+            Button(action: {
+                
+            }, label: {
+            
+            Image(systemName: "heart")
+                .resizable()
+                .foregroundColor(.pink)
+                .frame(width: 20, height: 20)
+                .padding(.trailing)
+                    
+            })
+            
+            
+        }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 150, alignment: .leading)
         .background(Color.gray)
         .cornerRadius(10.0)
@@ -62,12 +77,12 @@ struct OrganizationView: View {
 // MARK: - Preview
 struct OrganizationView_Previews: PreviewProvider {
     static var previews: some View {
-        OrganizationView(organization: Item(login: "",
+        OrganizationView(organization: Item(login: "microsoft",
                                             id: 1,
-                                            nodeID: "",
-                                            avatarURL: "",
+                                            nodeID: "MDEyOk9yZ2FuaXphdGlvbjYxNTQ3MjI",
+                                            avatarURL: "https://avatars.githubusercontent.com/u/6154722?v=4",
                                             gravatarID: "",
-                                            url: "",
+                                            url: "https://api.github.com/users/microsoft",
                                             htmlURL: "",
                                             followersURL: "",
                                             subscriptionsURL: "",

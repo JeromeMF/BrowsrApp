@@ -14,7 +14,10 @@ class OrganizationsListViewModel: ObservableObject {
     private var page: Int = 1
     private var totalPages = 0
     
+    var favourites: [Item] = []
+    
     @Published var organizations: [Item] = []
+    
 
     init() {
         sortOrganization("followers")
@@ -34,11 +37,11 @@ class OrganizationsListViewModel: ObservableObject {
     }
     
     // MARK: - Load more orgs
-    func loadMoreOrganizations(index: Int) {
+    func loadMoreOrganizations(index: Int, sortType: String) {
         let limitIndex = self.organizations.index(self.organizations.endIndex, offsetBy: -1)
         if limitIndex == index, (page + 1) <= totalPages {
             page += 1
-            getOrganizations()
+            sortOrganization(sortType)
         }
     }
     
@@ -52,18 +55,20 @@ class OrganizationsListViewModel: ObservableObject {
                 
             }, receiveValue: { data in
                 self.organizations.append(contentsOf: data.items)
+                print(data)
             })
     }
     
     // MARK: - Sort organizations
     func sortOrganization(_ sortType: String) {
-        self.organizations.removeAll()
-        print(sortType)
+//        self.organizations.removeAll()
+//        print(sortType)
         cancellable = BrowsrLib().sortOrganizations(page: page, sortType: sortType)
             .sink(receiveCompletion: { _ in
                 
             }, receiveValue: { data in
                 self.organizations.append(contentsOf: data.items)
+                self.totalPages = data.totalCount / 50
 //                print(data)
             })
     }
@@ -72,6 +77,11 @@ class OrganizationsListViewModel: ObservableObject {
     func clearOrganizations() {
         organizations.removeAll()
         page = 1
+    }
+    
+    // MARK: - Save favourite
+    func addToFavourite() {
+        
     }
     
 }

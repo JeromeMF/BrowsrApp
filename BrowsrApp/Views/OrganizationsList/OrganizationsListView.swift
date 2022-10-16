@@ -10,7 +10,7 @@ import SwiftUI
 struct OrganizationsListView: View {
     // MARK: - Properties
     @StateObject var viewModel = OrganizationsListViewModel()
-    @State var selection: String = ""
+    @State var sortSelection: String = "followers"
     @State var searchString: String = ""
     
     @Environment(\.dismissSearch) var dismissSearch
@@ -24,53 +24,25 @@ struct OrganizationsListView: View {
             ZStack {
                 VStack(spacing: 0) {
                     
-                    Picker("Sort", selection: $selection) {
-                                    ForEach(sorting, id: \.self) {
-                                        Text($0)
+                    Picker("Sort", selection: $sortSelection) {
+                                    ForEach(sorting, id: \.self) { sort in
+                                        Text(sort)
                                     }
                                 }
                                 .pickerStyle(.menu)
-                    
-                    
-//                    HStack() {
-                        //                    Text("SearchBar")
-                        
-                        //                        TextField("Search", text: $searchString)
-                        
-//                        Spacer()
-//
-//                                            Button(action: {
-//
-//                                            }, label: {
-//                                                HStack {
-//                                                    Text("Sort")
-//                                                    Image(systemName: "line.3.horizontal.decrease.circle")
-//                                                }
-//                                            })
-                        
-//                                            Picker("Sort", selection: $selection) {
-//                                                            ForEach(SortingType, id: \.self) {
-//                                                                Text($0)
-//                                                            }
-//                                                        }
-//                                                        .pickerStyle(.menu)
-                        
-//                    }
-//                    .padding([.horizontal, .bottom])
-                    
                     ScrollView {
                         LazyVStack {
                             ForEach(viewModel.organizations.indices, id: \.self) { index in
                                 OrganizationView(organization: viewModel.organizations[index])
                                     .onAppear() {
                                         if !isSearching && searchString.isEmpty {
-                                            viewModel.loadMoreOrganizations(index: index)
+                                            viewModel.loadMoreOrganizations(index: index, sortType: sortSelection)
                                         }
                                     }
                             }
                         }
                     }
-                    .searchable(text: $searchString, suggestions: {
+                    .searchable(text: $searchString, prompt: "Organization name", suggestions: {
                         //                        ForEach(viewModel.organizations, id: \.self) { name in
                         //                            Text(name.login)
                         //                                .searchCompletion(name.login)
@@ -79,10 +51,12 @@ struct OrganizationsListView: View {
                     .onChange(of: searchString) { newString in
                         if newString.isEmpty {
                             viewModel.clearOrganizations()
-                            viewModel.getOrganizations()
+                            viewModel.sortOrganization(sortSelection)
                         }
                     }
-                    .onChange(of: selection) { sort in
+                    .onChange(of: sortSelection) { sort in
+                        searchString = ""
+                        viewModel.clearOrganizations()
                         viewModel.sortOrganization(sort)
                     }
                     .onSubmit(of: .search) { // Su
