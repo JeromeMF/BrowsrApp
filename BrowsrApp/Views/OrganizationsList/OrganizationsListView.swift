@@ -65,6 +65,7 @@ struct OrganizationsListView: View {
                         if newString.isEmpty {
                             viewModel.clearOrganizations()
                             viewModel.sortOrganization(sortSelection)
+                            sortSelection = sorting[0]
                         }
                     }
                     .onChange(of: sortSelection) { sort in
